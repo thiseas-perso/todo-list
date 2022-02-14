@@ -1,22 +1,20 @@
+import { todoListMethods, projectMethods, todoMethods } from './methods.js'
+
+
+
 function createTodoList(setTitle) {
+   const methods = todoListMethods();
    const title = setTitle;
    const projects = [];
-   const createNewProject = function (title, isDefault) {
-      const newProject = createProject(title, isDefault);
-      projects.push(newProject)
-   }
-   return { title, projects, createNewProject }
+   return Object.assign({}, methods, { title, projects })
 }
 
 function createProject(setTitle = 'New Project', setDefault = false) {
+   const methods = projectMethods();
    const todos = [];
    const isDefault = setDefault;
    const title = setTitle;
-   const createNewTodo = function (setTitle, setDate) {
-      const newTodo = createTodo(setTitle, setDate)
-      todos.push(newTodo)
-   }
-   return { todos, isDefault, title, createNewTodo }
+   return Object.assign({}, methods, { todos, isDefault, title })
 }
 
 function createTodo(setTitle = "Unnamed to-do", date = undefined) {
