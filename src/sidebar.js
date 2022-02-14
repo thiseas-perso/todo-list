@@ -1,15 +1,5 @@
-import './style.css';
-import { TodoList, Project, Todo } from "./methods.js"
-
-
-const myList = new TodoList('My Calendar')
-myList.createNewProject('Example Project', true)
-
-
-function populateDom() {
-
+function createSidebar(list) {
    const body = document.querySelector('body')
-
 
    const sidebar = document.createElement('aside')
    const sidebarTitle = document.createElement('h2')
@@ -17,11 +7,11 @@ function populateDom() {
    sidebar.appendChild(sidebarTitle)
 
 
-   for (let i = 0; i < myList.projects.length; i++) {
+   for (let i = 0; i < list.projects.length; i++) {
       let sidebarItem = document.createElement('div')
-      sidebarItem.setAttribute('class', 'sidebar-item')
+      sidebarItem.classList.add('sidebar-item')
       let itemTitle = document.createElement('h3')
-      itemTitle.innerText = myList.projects[i].title
+      itemTitle.innerText = list.projects[i].title
       sidebarItem.appendChild(itemTitle)
       sidebar.appendChild(sidebarItem)
    }
@@ -31,4 +21,4 @@ function populateDom() {
 
 }
 
-export { populateDom }
+export { createSidebar }

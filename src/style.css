@@ -1,3 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+
 body{
-   background-color: #293241;
+   background-color: #003049;
+   color: #FDF0D5;
+   display: grid;
+   grid-template-columns: max-content 1fr;
+   height: 100vh;
+   column-gap: 16px;
+   margin: 0;
+   font-family: 'Roboto', sans-serif;
+}
+
+aside{
+   padding: 16px;
+}
+
+.todo-container{
+   display: flex;
+   align-items: center;
 }

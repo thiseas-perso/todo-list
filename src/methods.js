@@ -5,6 +5,7 @@ TodoList.prototype.createNewProject = function (title, isDefault) {
    const newProject = new Project(title, isDefault);
    newProject.containerArray = this.projects;
    this.projects.push(newProject)
+   return newProject
 }
 
 
@@ -12,6 +13,7 @@ Project.prototype.createNewTodo = function (setTitle, setDate) {
    const newTodo = new Todo(setTitle, setDate)
    newTodo.containerArray = this.todos;
    this.todos.push(newTodo)
+   return newTodo
 }
 
 
@@ -41,6 +43,7 @@ Todo.prototype.moveTodo = function (destination) {
    let moved = this.deleteTodo();
    moved[0].containerArray = destination.todos;
    destination.todos.push(moved[0]);
+   return moved
 }
 
 export { TodoList, Project, Todo }

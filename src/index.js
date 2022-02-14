@@ -1,7 +1,8 @@
 import './style.css';
-import { TodoList, Project, Todo } from "./methods.js"
-import { populateDom } from './domManipulation.js'
 
+import { mainList } from './seed.js'
+import { createSidebar } from './sidebar.js'
+import { createMainContent } from './main.js'
 
-
-populateDom()
+createSidebar(mainList)
+createMainContent(mainList.projects[0])
