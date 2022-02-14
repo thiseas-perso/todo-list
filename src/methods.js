@@ -15,7 +15,6 @@ Project.prototype.createNewTodo = function (setTitle, setDate) {
 }
 
 
-
 Project.prototype.deleteProject = function () {
    for (let i = 0; i < this.containerArray.length; i++) {
       if (this == this.containerArray[i]) {
@@ -32,22 +31,16 @@ Project.prototype.deleteProject = function () {
 Todo.prototype.deleteTodo = function () {
    for (let i = 0; i < this.containerArray.length; i++) {
       if (this == this.containerArray[i]) {
-         this.containerArray.splice(i, 1)
-         break;
+         return this.containerArray.splice(i, 1)
       }
    }
 }
 
 
 Todo.prototype.moveTodo = function (destination) {
-   let moved = null;
-   for (let i = 0; i < this.containerArray.length; i++) {
-      if (this == this.containerArray[i]) {
-         moved = this.containerArray.splice(i, 1);
-         continue;
-      }
-   }
-   console.log('moved : ', moved)
+   let moved = this.deleteTodo();
    moved[0].containerArray = destination.todos;
    destination.todos.push(moved[0]);
 }
+
+export { TodoList, Project, Todo }
