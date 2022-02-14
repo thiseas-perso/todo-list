@@ -1,7 +1,5 @@
 import { todoListMethods, projectMethods, todoMethods } from './methods.js'
 
-
-
 function TodoList(setTitle) {
    this.title = setTitle;
    this.projects = [];
