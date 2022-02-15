@@ -1,4 +1,4 @@
-function showDetails(todo) {
+function createNew() {
    const body = document.querySelector('body')
    const background = document.createElement('div')
    background.classList.add('overlay-div')
@@ -8,7 +8,7 @@ function showDetails(todo) {
    container.classList.add('details-container')
 
    const title = document.createElement('h4')
-   title.innerText = todo.title
+   title.innerText = 'create new'
 
    const close = document.createElement('button')
    close.innerText = "close"
@@ -17,11 +17,9 @@ function showDetails(todo) {
       body.removeChild(background)
    })
 
-   const details = document.createElement('p')
-   details.innerText = `Project: ${todo.parentProject} \n Priority: ${todo.priority} \n Details: ${todo.description} \n Due Date: ${todo.dueDate} `
+
 
    container.appendChild(title)
-   container.appendChild(details)
    container.appendChild(close)
    body.appendChild(background)
    background.appendChild(container)
@@ -29,4 +27,4 @@ function showDetails(todo) {
 }
 
 
-export { showDetails }
+export { createNew }

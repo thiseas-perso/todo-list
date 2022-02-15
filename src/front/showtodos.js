@@ -19,15 +19,25 @@ function showTodos(project) {
             showDetails(element)
          })
 
+         const deleteBtn = document.createElement('span')
+         deleteBtn.innerText = 'delete_forever'
+         deleteBtn.classList.add('material-icons-outlined', 'deleteBtn')
+         deleteBtn.addEventListener('click', function (e) {
+            element.deleteTodo()
+            main.removeChild(todoContainer)
+         })
+
          const todoDate = document.createElement('div')
          todoDate.innerText = element.dueDate
 
          todoContainer.appendChild(todoTitle)
          todoContainer.appendChild(detailsBtn)
          todoContainer.appendChild(todoDate)
+         todoContainer.appendChild(deleteBtn)
          main.appendChild(todoContainer)
       });
 
 }
 
 export { showTodos }
+

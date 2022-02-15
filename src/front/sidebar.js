@@ -1,6 +1,7 @@
 import { showTodos } from './showtodos.js'
 import { cleanTodos } from './cleantodos.js'
 import { toggleActive } from './toggleactive.js'
+import { createNew } from './createnew.js'
 
 function createSidebar(list) {
    const body = document.querySelector('body')
@@ -20,6 +21,15 @@ function createSidebar(list) {
          toggleActive(e)
       })
    }
+
+   const newItemBtn = document.createElement('span')
+   newItemBtn.classList.add('material-icons-outlined', 'newBtn')
+   newItemBtn.innerText = 'add'
+   newItemBtn.addEventListener('click', function (e) {
+      createNew()
+   })
+
+   sidebar.appendChild(newItemBtn)
 
    body.appendChild(sidebar)
 
