@@ -1,7 +1,7 @@
-import { cleanTodos } from './cleantodos.js'
+import { showDetails } from './showdetails.js'
 
 function showTodos(project) {
-   cleanTodos()
+
    const body = document.querySelector('body')
    const main = document.createElement('main')
    body.appendChild(main)
@@ -12,9 +12,18 @@ function showTodos(project) {
          todoContainer.classList.add('todo-container')
          const todoTitle = document.createElement('p')
          todoTitle.innerText = element.title
+
+         const detailsBtn = document.createElement('button')
+         detailsBtn.innerText = 'DETAILS'
+         detailsBtn.addEventListener('click', function (event) {
+            showDetails(element)
+         })
+
          const todoDate = document.createElement('div')
          todoDate.innerText = element.dueDate
+
          todoContainer.appendChild(todoTitle)
+         todoContainer.appendChild(detailsBtn)
          todoContainer.appendChild(todoDate)
          main.appendChild(todoContainer)
       });

@@ -20,6 +20,7 @@ function Todo(setTitle = "Unnamed to-do", date = undefined) {
    this.priority = 0;
    this.complete = false;
    this.containerArray;
+   this.parentProject;
 }
 
 export { TodoList, Project, Todo }

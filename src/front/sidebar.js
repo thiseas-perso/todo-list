@@ -1,5 +1,6 @@
 import { showTodos } from './showtodos.js'
 import { cleanTodos } from './cleantodos.js'
+import { toggleActive } from './toggleactive.js'
 
 function createSidebar(list) {
    const body = document.querySelector('body')
@@ -11,13 +12,12 @@ function createSidebar(list) {
    for (let i = 0; i < list.projects.length; i++) {
       let sidebarItem = document.createElement('div')
       sidebarItem.classList.add('sidebar-item')
-      let itemTitle = document.createElement('p')
-      itemTitle.innerText = list.projects[i].title
-      sidebarItem.appendChild(itemTitle)
+      sidebarItem.innerText = list.projects[i].title
       sidebar.appendChild(sidebarItem)
       sidebarItem.addEventListener('click', function (e) {
          cleanTodos()
          showTodos(list.projects[i])
+         toggleActive(e)
       })
    }
 
