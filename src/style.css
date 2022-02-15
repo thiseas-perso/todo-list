@@ -17,7 +17,15 @@ aside{
    padding: 16px;
 }
 
+main{
+   padding-top: 72px;
+}
+
 .todo-container{
    display: flex;
    align-items: center;
+   justify-content: space-between;
+   max-width: 600px;
+   border: 1px solid red;
+   padding: 0 16px;
 }

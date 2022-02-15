@@ -1,8 +1,9 @@
 import './style.css';
 
-import { mainList } from './seed.js'
-import { createSidebar } from './sidebar.js'
-import { createMainContent } from './main.js'
+import { mainList } from './back/seed.js'
+import { createSidebar } from './front/sidebar.js'
+import { createMainContent } from './front/main.js'
+
 
 createSidebar(mainList)
 createMainContent(mainList.projects[0])
