@@ -1,4 +1,7 @@
-function createMainContent(project) {
+import { cleanTodos } from './cleantodos.js'
+
+function showTodos(project) {
+   cleanTodos()
    const body = document.querySelector('body')
    const main = document.createElement('main')
    body.appendChild(main)
@@ -7,7 +10,7 @@ function createMainContent(project) {
       project.todos.forEach(element => {
          const todoContainer = document.createElement('div')
          todoContainer.classList.add('todo-container')
-         const todoTitle = document.createElement('h4')
+         const todoTitle = document.createElement('p')
          todoTitle.innerText = element.title
          const todoDate = document.createElement('div')
          todoDate.innerText = element.dueDate
@@ -18,4 +21,4 @@ function createMainContent(project) {
 
 }
 
-export { createMainContent }
+export { showTodos }
