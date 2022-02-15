@@ -1,7 +1,7 @@
 import { showTodos } from './showtodos.js'
 import { cleanTodos } from './cleantodos.js'
 import { toggleActive } from './toggleactive.js'
-import { createNew } from './createnewproject.js'
+import { createNewProject } from './createnewproject.js'
 
 
 
@@ -17,7 +17,21 @@ function seedSidebar(list) {
    for (let i = 0; i < list.projects.length; i++) {
       let sidebarItem = document.createElement('div')
       sidebarItem.classList.add('sidebar-item')
-      sidebarItem.innerText = list.projects[i].title
+
+      const deleteBtn = document.createElement('span')
+      deleteBtn.innerText = 'delete_forever'
+      deleteBtn.classList.add('material-icons-outlined', 'deleteBtn')
+      deleteBtn.addEventListener('click', function (e) {
+         list.projects[i].deleteProject()
+         console.log(list.projects)
+         seedSidebar(list)
+      })
+
+      const sidebarItemText = document.createElement('span')
+      sidebarItemText.classList.add('sidebar-item-text')
+      sidebarItemText.innerText = list.projects[i].title
+      sidebarItem.appendChild(sidebarItemText)
+      sidebarItem.appendChild(deleteBtn)
       sidebarTop.appendChild(sidebarItem)
       sidebarItem.addEventListener('click', function (e) {
          cleanTodos()
@@ -31,7 +45,7 @@ function seedSidebar(list) {
    newItemBtn.setAttribute('id', 'newBtn')
    newItemBtn.innerText = 'add'
    newItemBtn.addEventListener('click', function (e) {
-      createNew()
+      createNewProject()
    })
 
    sidebar.appendChild(sidebarTop)

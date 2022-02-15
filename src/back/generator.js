@@ -15,7 +15,7 @@ function Project(setTitle = 'New Project', setDefault = false) {
 
 function Todo(setTitle = "Unnamed to-do", date = undefined) {
    this.title = setTitle;
-   this.description;
+   this.description = '';
    this.dueDate = date;
    this.priority = 0;
    this.complete = false;

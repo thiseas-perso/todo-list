@@ -1,7 +1,7 @@
 import { mainList } from '../back/seed.js'
 import { seedSidebar } from './seedsidebar.js'
 
-function createNew() {
+function createNewProject() {
    const body = document.querySelector('body')
    const background = document.createElement('div')
    background.classList.add('overlay-div')
@@ -34,6 +34,7 @@ function createNew() {
       e.preventDefault()
       mainList.createNewProject(titleInput.value)
       seedSidebar(mainList)
+      console.log(mainList)
       body.removeChild(background)
    })
 
@@ -48,4 +49,4 @@ function createNew() {
 }
 
 
-export { createNew }
+export { createNewProject }
