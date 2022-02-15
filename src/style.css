@@ -40,7 +40,8 @@ body{
 }
 
 
-.details-container{
+.details-container,
+.newitem-container{
    z-index: 90;
    background-color: #98c1d9;
    border: 1px solid #293241;
@@ -48,9 +49,28 @@ body{
    color: black;
 }
 
+.newitem-container form{
+display: grid;
+gap: 8px;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 1fr 1fr;
+}
+
+.newitem-container form input{
+grid-column: 1/3;
+}
+
+.close-btn:hover{
+   background-color: #ee6c4d;
+}
+
 
 aside{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
    padding: 16px;
+   padding-bottom:32px;
    background-color: #3d5a80;
 }
 
@@ -117,6 +137,46 @@ button:hover{
 button:active{
 background-color: #3d5a80;
 }
+
+.deleteBtn{
+   transition: 50ms;
+}
+
+.deleteBtn:hover{
+cursor: pointer;
+color: #ee6c4d;
+}
+
+.deleteBtn:active{
+   color: #c1121f;
+}
+
+
+#newBtn{
+   color: #e0fbfc;
+   font-size: 4rem;
+   transition: 50ms;
+   border: 3px solid #e0fbfc;
+   border-radius: 50%;
+   box-shadow: 5px 5px 20px rgba(224, 251, 252, 0.5)  ; 
+   transition: 100ms;
+}
+
+
+#newBtn:hover{
+   cursor: pointer;
+   background-color: #98c1d9;
+}
+
+
+
+#newBtn:active{
+   transform: translateY(2px);
+}
+
+
+
+
 
 .material-icons-outlined {
    font-family: 'Material Icons';
