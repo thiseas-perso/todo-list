@@ -1,4 +1,5 @@
 import { showDetails } from './showdetails.js'
+import { createTodo } from './createnewtodo.js'
 
 function showTodos(project) {
 
@@ -6,7 +7,7 @@ function showTodos(project) {
    const main = document.createElement('main')
    body.appendChild(main)
 
-   if (project)
+   if (project) {
       project.todos.forEach(element => {
          const todoContainer = document.createElement('div')
          todoContainer.classList.add('todo-container')
@@ -35,7 +36,21 @@ function showTodos(project) {
          todoContainer.appendChild(todoDate)
          todoContainer.appendChild(deleteBtn)
          main.appendChild(todoContainer)
-      });
+      })
+      const newTodoBtnContainer = document.createElement('div')
+      const createNewTodoBtn = document.createElement('span')
+      newTodoBtnContainer.appendChild(createNewTodoBtn)
+
+      createNewTodoBtn.classList.add('material-icons-outlined')
+      createNewTodoBtn.setAttribute('id', 'newTodoBtn')
+      createNewTodoBtn.innerText = 'add'
+      main.appendChild(newTodoBtnContainer)
+      createNewTodoBtn.addEventListener('click', function (e) {
+         createTodo(project)
+      })
+
+
+   }
 
 }
 
