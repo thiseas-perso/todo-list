@@ -96,6 +96,10 @@ main{
    margin-bottom: 8px;
 }
 
+.todo-completed{
+   filter: brightness(50%);
+}
+
 .sidebar-item{
    transition: 50ms;
    padding: 8px 32px;

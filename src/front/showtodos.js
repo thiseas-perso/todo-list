@@ -1,6 +1,7 @@
 import { showDetails } from './showdetails.js'
 import { editTodo } from './edittodo.js'
 import { createTodo } from './createnewtodo.js'
+import { toggleComplete } from './togglecomplete.js'
 
 function showTodos(project) {
 
@@ -39,13 +40,27 @@ function showTodos(project) {
          const todoDate = document.createElement('div')
          todoDate.innerText = element.dueDate
 
+         const markCompleteBtn = document.createElement('span')
+         markCompleteBtn.classList.add('material-icons-outlined', 'editBtn')
+         if (!element.complete)
+            markCompleteBtn.innerText = 'radio_button_unchecked'
+         else
+            markCompleteBtn.innerText = 'radio_button_checked'
+
+         markCompleteBtn.addEventListener('click', function (e) {
+            toggleComplete(e, element, todoContainer)
+         })
+
+
          todoContainer.appendChild(todoTitle)
          todoContainer.appendChild(detailsBtn)
          todoContainer.appendChild(todoDate)
+         todoContainer.appendChild(markCompleteBtn)
          todoContainer.appendChild(editBtn)
          todoContainer.appendChild(deleteBtn)
          main.appendChild(todoContainer)
       })
+
       const newTodoBtnContainer = document.createElement('div')
       const createNewTodoBtn = document.createElement('span')
       newTodoBtnContainer.appendChild(createNewTodoBtn)

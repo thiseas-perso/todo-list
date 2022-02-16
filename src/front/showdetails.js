@@ -18,7 +18,7 @@ function showDetails(todo) {
    })
 
    const details = document.createElement('p')
-   details.innerText = `Project: ${todo.parentProject} \n Priority: ${todo.priority} \n Details: ${todo.description} \n Due Date: ${todo.dueDate} `
+   details.innerText = `Project: ${todo.parentProject} \n Priority: ${todo.priority} \n Details: ${todo.description} \n Due Date: ${todo.dueDate} \n Completed : ${todo.complete ? 'yes' : 'no'}`
 
    container.appendChild(title)
    container.appendChild(details)
