@@ -9,7 +9,6 @@ function seed() {
    const project2 = list.createNewProject('Example Project 2', false)
    project2.createNewTodo('Feed the dogs', 'september')
    const project3 = list.createNewProject('Example Project 3', false)
-
    return list
 }
 
