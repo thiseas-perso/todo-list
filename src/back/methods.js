@@ -9,8 +9,8 @@ TodoList.prototype.createNewProject = function (title, isDefault) {
 }
 
 
-Project.prototype.createNewTodo = function (setTitle, setDate, setDescription) {
-   const newTodo = new Todo(setTitle, setDate, setDescription)
+Project.prototype.createNewTodo = function (setTitle, setDate, setDescription, setPrio) {
+   const newTodo = new Todo(setTitle, setDate, setDescription, setPrio)
    newTodo.containerArray = this.todos;
    newTodo.parentProject = this.title;
    this.todos.push(newTodo)

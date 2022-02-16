@@ -13,11 +13,11 @@ function Project(setTitle = 'New Project', setDefault = false) {
    this.description;
 }
 
-function Todo(title = "Unnamed to-do", date = '', description = '') {
+function Todo(title = "Unnamed to-do", date = '', description = '', priority = '') {
    this.title = title;
    this.description = description;
    this.dueDate = date;
-   this.priority = 0;
+   this.priority = priority;
    this.complete = false;
    this.containerArray;
    this.parentProject;

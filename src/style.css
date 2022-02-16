@@ -178,7 +178,9 @@ color: #ee6c4d;
 }
 
 
-
+textarea {
+   resize: none;
+ }
 
 
 .material-icons-outlined {

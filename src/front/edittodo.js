@@ -1,7 +1,8 @@
 import { showTodos } from './showtodos.js'
 import { cleanTodos } from './cleantodos.js'
+import { findSelectedPrio } from './findselectedoption.js'
 
-function createTodo(project) {
+function editTodo(todo, proj) {
    const body = document.querySelector('body')
    const background = document.createElement('div')
    background.classList.add('overlay-div')
@@ -11,7 +12,7 @@ function createTodo(project) {
    container.classList.add('newitem-container')
 
    const title = document.createElement('h4')
-   title.innerText = 'Create a new Todo'
+   title.innerText = `Edit '${todo.title}'`
 
    const close = document.createElement('button')
    close.innerText = "Cancel"
@@ -28,7 +29,7 @@ function createTodo(project) {
    const titleInput = document.createElement('input')
    titleInput.setAttribute('type', 'text')
    titleInput.setAttribute('required', 'true')
-   titleInput.setAttribute('placeholder', 'Choose a title')
+   titleInput.value = todo.title
 
    const dateInput = document.createElement('input')
    dateInput.setAttribute('type', 'date')
@@ -38,10 +39,12 @@ function createTodo(project) {
    descrInput.setAttribute('placeholder', 'Details about your task')
    descrInput.setAttribute('id', 'todo-textarea')
    descrInput.setAttribute('maxlength', '500')
+   descrInput.value = todo.description
 
    const prioInput = document.createElement('select')
    prioInput.setAttribute('name', 'priority')
    prioInput.setAttribute('id', 'priority')
+
 
    const selectEmpty = document.createElement('option')
    selectEmpty.setAttribute('value', '')
@@ -61,6 +64,8 @@ function createTodo(project) {
    selectHigh.innerText = 'High'
 
 
+   findSelectedPrio(todo, selectEmpty, selectLow, selectNormal, selectHigh)
+
    prioInput.appendChild(selectEmpty)
    prioInput.appendChild(selectLow)
    prioInput.appendChild(selectNormal)
@@ -72,10 +77,13 @@ function createTodo(project) {
 
    form.addEventListener('submit', function (e) {
       e.preventDefault()
-      console.log(prioInput.value)
-      project.createNewTodo(titleInput.value, dateInput.value, descrInput.value, prioInput.value)
+      todo.title = titleInput.value;
+      todo.description = descrInput.value;
+      if (dateInput.value)
+         todo.dueDate = dateInput.value;
+      todo.priority = prioInput.value;
       cleanTodos()
-      showTodos(project)
+      showTodos(proj)
       body.removeChild(background)
    })
 
@@ -93,4 +101,4 @@ function createTodo(project) {
 }
 
 
-export { createTodo }
+export { editTodo }

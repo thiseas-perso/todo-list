@@ -1,4 +1,5 @@
 import { showDetails } from './showdetails.js'
+import { editTodo } from './edittodo.js'
 import { createTodo } from './createnewtodo.js'
 
 function showTodos(project) {
@@ -28,12 +29,20 @@ function showTodos(project) {
             main.removeChild(todoContainer)
          })
 
+         const editBtn = document.createElement('span')
+         editBtn.innerText = 'edit'
+         editBtn.classList.add('material-icons-outlined', 'editBtn')
+         editBtn.addEventListener('click', function (e) {
+            editTodo(element, project)
+         })
+
          const todoDate = document.createElement('div')
          todoDate.innerText = element.dueDate
 
          todoContainer.appendChild(todoTitle)
          todoContainer.appendChild(detailsBtn)
          todoContainer.appendChild(todoDate)
+         todoContainer.appendChild(editBtn)
          todoContainer.appendChild(deleteBtn)
          main.appendChild(todoContainer)
       })
