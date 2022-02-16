@@ -23,7 +23,6 @@ function seedSidebar(list) {
       deleteBtn.classList.add('material-icons-outlined', 'deleteBtn')
       deleteBtn.addEventListener('click', function (e) {
          list.projects[i].deleteProject()
-         console.log(list.projects)
          seedSidebar(list)
       })
 
