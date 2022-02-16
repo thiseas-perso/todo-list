@@ -3,8 +3,8 @@ import { TodoList, Project, Todo } from './generator.js'
 
 TodoList.prototype.createNewProject = function (title, isDefault) {
    const newProject = new Project(title, isDefault);
-   newProject.containerArray = this.projects;
    this.projects.push(newProject)
+   newProject.containerArray = this.projects;
    return newProject
 }
 
