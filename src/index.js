@@ -12,6 +12,7 @@ createSidebar()
 seedSidebar(mainList)
 showTodos(mainList.projects[0])
 const sidebarItem = document.querySelector('.sidebar-item')
-sidebarItem.classList.add('activated')
+if (sidebarItem)
+   sidebarItem.classList.add('activated')
 
 
