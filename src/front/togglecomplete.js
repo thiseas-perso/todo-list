@@ -9,7 +9,7 @@ function toggleComplete(event, todo, container) {
       event.originalTarget.innerText = 'radio_button_checked'
       container.classList.add('todo-completed')
    }
-   console.log(event)
+
 }
 
 export { toggleComplete }

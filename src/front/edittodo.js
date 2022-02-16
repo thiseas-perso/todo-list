@@ -9,7 +9,7 @@ function editTodo(todo, proj) {
 
 
    const container = document.createElement('div')
-   container.classList.add('newitem-container')
+   container.classList.add('newtodo-container')
 
    const title = document.createElement('h4')
    title.innerText = `Edit '${todo.title}'`

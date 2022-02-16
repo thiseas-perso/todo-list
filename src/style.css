@@ -41,7 +41,7 @@ body{
 
 
 .details-container,
-.newitem-container{
+.newtodo-container{
    z-index: 90;
    background-color: #98c1d9;
    border: 1px solid #293241;
@@ -58,6 +58,24 @@ grid-template-rows: 1fr 1fr;
 
 .newitem-container form input{
 grid-column: 1/3;
+}
+
+.newtodo-container form{
+   display: grid;
+   gap: 8px;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: repeat(4, max-content);
+   align-items: center;
+}
+
+.newtodo-container input,
+.newtodo-container textarea,
+.newtodo-container select {
+   grid-column: 1/3;
+}
+
+.newtodo-container h4{
+   margin: 8px 0px;
 }
 
 .close-btn:hover{
@@ -83,21 +101,33 @@ header{
 
 main{
    padding-top: 72px;
+   display: flex;
+   flex-direction: column;
+   max-width: 800px;
 }
 
 .todo-container{
-   display: flex;
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);   
    align-items: center;
-   justify-content: space-between;
-   max-width: 600px;
-   
+   justify-items: center;
    padding: 0 16px;
    background-color: #3d5a80;
    margin-bottom: 8px;
+   margin-right: 16px;
+}
+
+.btn-container{
+   display: flex;
+   gap: 8px
 }
 
 .todo-completed{
    filter: brightness(50%);
+}
+
+.todo-completed > p{
+   text-decoration: line-through;
 }
 
 .sidebar-item{
@@ -145,7 +175,9 @@ button:active{
 background-color: #3d5a80;
 }
 
-.deleteBtn{
+.deleteBtn,
+.editBtn
+.toggleBtn{
    transition: 50ms;
 }
 
@@ -158,6 +190,58 @@ color: #ee6c4d;
    color: #c1121f;
 }
 
+
+.editBtn:hover,
+.toggleBtn:hover{
+   cursor: pointer;
+   color: #e0fbfc;
+}
+
+
+.priodisplay:hover{
+cursor: default;
+}
+
+
+.noprio{
+   color: #98c1d9;
+}
+
+.lowprio{
+   color: #32db81;
+}
+.normalprio{
+   color: #db8a32;
+}
+.highprio{
+   color: #db324d;
+}
+
+
+
+#newTodoBtn{
+   background-color: #98c1d9;
+   color: #e0fbfc;
+   font-size: 1.2rem;
+   transition: 50ms;
+   border: 1px solid #e0fbfc;
+   border-radius: 0;
+   box-shadow: 5px 5px 20px rgba(224, 251, 252, 0.5); 
+   padding: 8px 16px;
+   transition: 100ms;
+   margin-right: 16px;
+}
+
+#newTodoBtn:hover{
+   cursor: pointer;
+   background-color: #3d5a80;
+}
+
+#newTodoBtnContainer{
+   margin-top: 16px;
+   display: flex;
+   justify-content: right;
+}
 
 #newBtn{
    color: #e0fbfc;
@@ -177,7 +261,8 @@ color: #ee6c4d;
 
 
 
-#newBtn:active{
+#newBtn:active,
+#newTodoBtn:active{
    transform: translateY(2px);
 }
 
