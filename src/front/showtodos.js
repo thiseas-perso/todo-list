@@ -47,11 +47,13 @@ function showTodos(project) {
 
          const markCompleteBtn = document.createElement('span')
          markCompleteBtn.classList.add('material-icons-outlined', 'toggleBtn')
-         if (!element.complete)
+         if (!element.complete) {
             markCompleteBtn.innerText = 'radio_button_unchecked'
-         else
+            todoContainer.classList.remove('todo-completed')
+         } else {
             markCompleteBtn.innerText = 'radio_button_checked'
-
+            todoContainer.classList.add('todo-completed')
+         }
          markCompleteBtn.addEventListener('click', function (e) {
             toggleComplete(e, element, todoContainer)
          })
