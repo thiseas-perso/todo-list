@@ -41,7 +41,8 @@ body{
 
 
 .details-container,
-.newtodo-container{
+.newtodo-container,
+.newitem-container{
    z-index: 90;
    background-color: #98c1d9;
    border: 1px solid #293241;
